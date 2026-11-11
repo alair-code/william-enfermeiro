@@ -1,0 +1,145 @@
+/* =========================================================
+   William Enfermeiro - folha de estilos
+   Ordem: 1 Variáveis | 2 Base | 3 Botões | 4 Cabeçalho
+          5 Hero | 6 Seções | 7 Blocos | 8 Rodapé | 9 Flutuante
+   ========================================================= */
+
+/* ---------- 1. VARIÁVEIS (mude as cores aqui) ---------- */
+:root {
+  --navy: #0B1F3A;        /* azul marinho da marca */
+  --blue: #1F5FA8;        /* azul do fundo da capa */
+  --gold: #D4AF5A;        /* dourado dos títulos e botões */
+  --gold-dark: #8A6A1F;   /* dourado escuro, legível em fundo claro */
+  --light: #F3F6FA;       /* fundo das seções claras */
+  --text: #1B2433;
+  --font-title: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+}
+
+/* ---------- 2. BASE ---------- */
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; } /* rolagem suave */
+body { font-family: var(--font-body); color: var(--text); line-height: 1.6; background: #fff; }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: var(--font-title); line-height: 1.15; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-bottom: .6rem; }
+h3 { font-size: 1.35rem; }
+a { color: inherit; }
+[hidden] { display: none !important; }
+.container { width: min(1080px, 100% - 2rem); margin-inline: auto; }
+.narrow { width: min(760px, 100% - 2rem); }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- 3. BOTÕES ---------- */
+.btn { display: inline-block; padding: .8rem 1.5rem; border-radius: 999px; font-weight: 600;
+       text-decoration: none; border: 2px solid transparent; transition: transform .15s, background .15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold:hover { background: #E6C877; }
+.btn-outline { border-color: var(--gold); color: var(--gold); }
+.btn-line { border-color: var(--navy); color: var(--navy); white-space: nowrap; }
+.btn-line:hover { background: var(--navy); color: #fff; }
+.btn-sm { padding: .5rem 1.1rem; }
+.btn-lg { padding: 1rem 2.2rem; font-size: 1.15rem; }
+.btn-row { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.2rem; }
+
+/* ---------- 4. CABEÇALHO ---------- */
+.site-header { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff;
+               transition: box-shadow .2s; }
+.site-header.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,.35); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; min-height: 64px; }
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--gold);
+         font-family: var(--font-title); font-weight: 700; font-size: 1.4rem; }
+.menu { display: flex; align-items: center; gap: 1.4rem; }
+.menu a:not(.btn) { text-decoration: none; }
+.menu a:not(.btn):hover { color: var(--gold); }
+.menu-toggle { display: none; background: none; border: 0; padding: .5rem; cursor: pointer; }
+.menu-toggle span { display: block; width: 24px; height: 2px; margin: 5px 0; background: var(--gold); }
+
+/* ---------- 5. HERO (capa) ---------- */
+.hero { background: var(--navy); }
+.hero-img { width: 100%; height: auto; animation: entrada .9s ease both; } /* única animação de entrada */
+.hero-cta { padding: 2rem 0 2.6rem; color: #fff; text-align: center; }
+.hero-cta h1 { font-size: clamp(2rem, 5vw, 3.2rem); color: var(--gold); }
+.hero-cta p { max-width: 52ch; margin: .8rem auto 0; }
+.hero-cta .btn-row { justify-content: center; }
+@keyframes entrada { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- 6. SEÇÕES ---------- */
+.section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.section-navy { background: var(--navy); color: #fff; }
+.section-navy h2, .section-navy h3 { color: var(--gold); }
+.lead { max-width: 60ch; margin-bottom: 2rem; }
+
+/* ---------- 7. BLOCOS ---------- */
+/* Serviços: lista em linhas (ícone + texto + botão) */
+.services { list-style: none; padding: 0; }
+.services li { display: grid; grid-template-columns: 48px 1fr auto; gap: 1.2rem; align-items: center;
+               padding: 1.3rem 0; border-top: 1px solid #D5DDE8; }
+.services li:last-child { border-bottom: 1px solid #D5DDE8; }
+.services svg { width: 40px; height: 40px; fill: none; stroke: var(--gold-dark); stroke-width: 1.6;
+                stroke-linecap: round; stroke-linejoin: round; }
+
+/* Sobre */
+.about { display: grid; grid-template-columns: 1fr 1.2fr; gap: 2.5rem; align-items: center; }
+.about img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 86% 30%; border-radius: 12px; }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: .4rem 1rem; margin: 1.2rem 0; }
+.facts dt { color: var(--gold); font-weight: 600; }
+.motto { font-family: var(--font-title); font-style: italic; font-size: 1.5rem; color: var(--gold); }
+[data-preencher] { outline: 2px dashed var(--gold); outline-offset: 2px; } /* lembrete: remova após preencher */
+
+/* Passos (sequência real, por isso numerados) */
+.steps { list-style: none; padding: 0; counter-reset: passo; display: grid;
+         grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+.steps li { counter-increment: passo; border-top: 3px solid var(--gold); padding-top: 1rem; }
+.steps h3::before { content: counter(passo) ". "; color: var(--gold-dark); }
+
+/* Diferenciais */
+.diffs { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+         gap: 1.8rem; margin-top: 2rem; }
+.diffs li { border-left: 3px solid var(--gold); padding-left: 1rem; }
+
+/* Depoimentos */
+.quotes blockquote { border-left: 3px solid var(--gold); padding-left: 1rem; font-size: 1.15rem; }
+.quotes cite { display: block; margin-top: .4rem; font-size: .95rem; color: var(--gold-dark); }
+
+/* FAQ (details/summary nativo) */
+details { border-bottom: 1px solid #D5DDE8; padding: 1rem 0; }
+summary { cursor: pointer; font-weight: 600; font-size: 1.1rem; }
+details p { margin-top: .6rem; }
+
+/* Contato */
+.contact { text-align: center; }
+.contact .btn { margin: 1.5rem 0 1rem; }
+.contact a:not(.btn) { color: var(--gold); }
+.small { font-size: .9rem; opacity: .85; }
+
+/* ---------- 8. RODAPÉ ---------- */
+.site-footer { background: #07152A; color: #C9D3E2; padding: 2rem 0 5rem; text-align: center; }
+.site-footer p { margin-top: .5rem; }
+.brand-line { font-family: var(--font-title); font-size: 1.3rem; color: var(--gold); }
+
+/* ---------- 9. BOTÃO FLUTUANTE DO WHATSAPP ---------- */
+.float-wa { position: fixed; right: 1rem; bottom: 1rem; z-index: 30; width: 58px; height: 58px;
+            display: grid; place-items: center; border-radius: 50%; background: var(--gold);
+            color: var(--navy); box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+
+/* ---------- RESPONSIVO (mobile primeiro nos ajustes abaixo) ---------- */
+@media (max-width: 820px) {
+  .menu-toggle { display: block; }
+  .menu { position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch;
+          gap: 0; background: var(--navy); padding: .5rem 1rem 1.2rem; display: none; }
+  .menu.open { display: flex; }
+  .menu a:not(.btn) { padding: .8rem 0; border-bottom: 1px solid #1B3354; }
+  .menu .btn { margin-top: 1rem; text-align: center; }
+  .services li { grid-template-columns: 40px 1fr; }
+  .services .btn { grid-column: 2; justify-self: start; }
+  .about, .steps { grid-template-columns: 1fr; }
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-img { animation: none; }
+  .btn { transition: none; }
+}
