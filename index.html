@@ -9,9 +9,9 @@
 
   <!-- Open Graph: prévia do link no WhatsApp. Troque pela URL real do site depois de publicar. -->
   <meta property="og:title" content="William Enfermeiro | Arte do Cuidar, Ciência do Curar">
-  <meta property="og:description" content="Cuidados de enfermagem no conforto da sua casa.">
+  <meta property="og:description" content="Cuidados de enfermagem domiciliar especializados: monitoramento vital, curativos e laserterapia no conforto do seu lar.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/img/hero.jpg">
+  <meta property="og:image" content="https://william-enfermeiro.github.io/assets/img/hero.jpg">
 
   <!-- Fontes: Cormorant Garamond (títulos) e Source Sans 3 (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,9 +21,24 @@
 
   <!-- SEO local (Schema.org). Acrescente cidade/região em "areaServed". -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"MedicalBusiness","name":"William Enfermeiro",
-   "description":"Cuidados de enfermagem domiciliar","telephone":"+55 33 99147 8161",
-   "slogan":"Arte do Cuidar • Ciência do Curar","areaServed":"Minas Gerais, Brasil"}
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "William Enfermeiro",
+    "description": "Especialista em cuidados de enfermagem domiciliar, monitoramento vital e laserterapia.",
+    "telephone": "+55 33 99147 8161",
+    "slogan": "Arte do Cuidar • Ciência do Curar",
+    "areaServed": {
+      "@type": "State",
+      "name": "Minas Gerais",
+      "addressCountry": "BR"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "MG",
+      "addressCountry": "BR"
+    }
+  }
   </script>
 </head>
 <body>
